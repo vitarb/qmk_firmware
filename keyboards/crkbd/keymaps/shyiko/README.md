@@ -11,7 +11,7 @@ git clone --recurse-submodules https://github.com/qmk/qmk_firmware.git &&
 util/qmk_install.sh
 ```
 
-## Flashing firmware
+## Flashing firmware (on Linux)
 
 ### 1st time
 
@@ -27,7 +27,7 @@ dmesg -w
 # you should see something like
 
 # [56297.493613] usb 1-2: new full-speed USB device number 52 using xhci_hcd
-# [56297.643065] usb 1-2: New USB device found, idVendor=2341, idProduct=0037, bcdDevice= 0.01 # < bootloader mode
+# [56297.643065] usb 1-2: New USB device found, idVendor=2341, idProduct=0037, bcdDevice= 0.01 # bootloader mode
 # [56297.643067] usb 1-2: New USB device strings: Mfr=2, Product=1, SerialNumber=0
 # [56297.643068] usb 1-2: Product: Arduino Micro   
 # [56297.643069] usb 1-2: Manufacturer: Arduino LLC
