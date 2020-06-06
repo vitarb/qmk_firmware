@@ -2,6 +2,7 @@
 # shyiko's [corne](https://github.com/foostan/crkbd) setup
 
 This document describes how to flash Elite C v3.0/Micro Pro for corne.
+List of parts & where to get them can be found [here](https://github.com/shyiko/dotfiles/blob/master/CORNE.md).
 
 ## Quickstart
 
@@ -13,7 +14,7 @@ util/qmk_install.sh
 
 ## Flashing firmware (on Linux)
 
-### 1st time
+### `1`st time
 
 #### Setup udev rules
 
@@ -23,26 +24,26 @@ util/qmk_install.sh
 # start watching kernel ring buffer
 dmesg -w
 # connect left side of the keyboard (keep TRRS cable disconnected)
-# short GND & RST on a microcontroller (twice!)
+# short GND & RST on a microcontroller OR press reset button (twice!)
 # you should see something like
 
 # [56297.493613] usb 1-2: new full-speed USB device number 52 using xhci_hcd
 # [56297.643065] usb 1-2: New USB device found, idVendor=2341, idProduct=0037, bcdDevice= 0.01 # bootloader mode
 # [56297.643067] usb 1-2: New USB device strings: Mfr=2, Product=1, SerialNumber=0
-# [56297.643068] usb 1-2: Product: Arduino Micro   
+# [56297.643068] usb 1-2: Product: Arduino Micro
 # [56297.643069] usb 1-2: Manufacturer: Arduino LLC
-# 
+#
 # [56297.644364] cdc_acm 1-2:1.0: ttyACM0: USB ACM device
 # [56305.289599] usb 1-2: USB disconnect, device number 52
-# 
+#
 # [56305.597431] usb 1-2: new full-speed USB device number 53 using xhci_hcd
 # [56305.748706] usb 1-2: New USB device found, idVendor=2341, idProduct=8037, bcdDevice= 1.00
 # [56305.748708] usb 1-2: New USB device strings: Mfr=1, Product=2, SerialNumber=0
 # [56305.748709] usb 1-2: Product: Arduino Micro
 # [56305.748710] usb 1-2: Manufacturer: Arduino LLC
 
-# from the output above we can see that Pro Micro identifies itself as 2341:8037 
-# during normal operation and as 2341:0037 in a bootloader mode (we'll need to 
+# from the output above we can see that Pro Micro identifies itself as 2341:8037
+# during normal operation and as 2341:0037 in a bootloader mode (we'll need to
 # enter the latter to flash)
 
 # take idVendor/idProduct from the above and put them in /etc/udev/rules.d/..., e.g.
@@ -67,7 +68,7 @@ sudo udevadm control --reload-rules
 watch -n.1 lsusb
 
 # connect left side of the keyboard (keep TRRS cable disconnected)
-# short GND & RST on a microcontroller OR press reset button (twice either way!)
+# short GND & RST on a microcontroller OR press reset button (twice!)
 # microcontroller should enter bootloader mode (but only for a short while so be quick!)
 
 # as soon as you see board in a bootloader mode (e.g. 2341:0037 in case of Pro Micro)
@@ -88,7 +89,7 @@ make crkbd:shyiko:dfu-split-right
 
 > \* alternatively, `make crkbd:shyiko` and then `avrdude -p atmega32u4 -P /dev/ttyACM0 -c avr109 -U flash:w:crkbd_rev1_shyiko.hex`.
 
-### Nst time        
+### `N`th time
 
 ```bash
 # if you have Pro Micro
@@ -119,7 +120,8 @@ want [Colemak-DH](https://colemakmods.github.io/mod-dh/) instead.
 # change key repeat delay/rate after plugging in the keyboard
 # (default key repeat delay is 660ms, rate - 40Hz (1s/40Hz = every 25ms))
 xset r rate 330 40
-# if you want values to persist use 
+
+# if you want values to persist use
 printf '#!/bin/sh\nexec /usr/bin/X -ardelay 330 -arinterval 25 -nolisten tcp "$@"\n' > ~/.xserverrc
 # (note that arinterval is in ms not Hz)
 ```
