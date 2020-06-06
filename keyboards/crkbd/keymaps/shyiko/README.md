@@ -1,8 +1,9 @@
 
 # shyiko's [corne](https://github.com/foostan/crkbd) setup
 
-This document describes how to flash Elite C v3.0/Micro Pro for corne.
-List of parts & where to get them can be found [here](https://github.com/shyiko/dotfiles/blob/master/CORNE.md).
+This document describes how to flash Elite C v3.0/Micro Pro for corne.  
+
+> See [this](https://github.com/shyiko/dotfiles/blob/master/CORNE.md) for the list of parts.
 
 ## Quickstart
 
