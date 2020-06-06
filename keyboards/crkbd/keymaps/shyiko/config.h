@@ -21,9 +21,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 // QMK config options
-// https://beta.docs.qmk.fm/reference/config_options
+// https://github.com/qmk/qmk_firmware/blob/master/docs/config_options.md
 
-#define MASTER_LEFT
+// read handedness value stored in the EEPROM after eeprom-lefthand.eep/eeprom-righthand.eep
+// has been flashed to their respective halves
+#define EE_HANDS
+// #define MASTER_LEFT
+// #define MASTER_RIGHT
+
 // required in case of Elite C v3.0
 #define SPLIT_USB_DETECT
 
