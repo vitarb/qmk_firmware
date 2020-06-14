@@ -1,18 +1,21 @@
 #include QMK_KEYBOARD_H
 
 // layers
+// https://beta.docs.qmk.fm/using-qmk/software-features/feature_layers
 #define L_DEFAULT 0
 #define L_LOWER 1
 #define L_LOWER_SHIFT 2
 #define L_RAISE 3
 #define L_EXTRA 4
 #define L_ADJUST 5 // LOWER+RAISE
+#define L_NUMPAD 6
 
 // custom key codes for layer switching
 enum kc_custom {
   LOWER = SAFE_RANGE,
   RAISE,
-  EXTRA
+  EXTRA,
+  NUMPAD
 };
 
 #include "keymap_layers.h"
@@ -71,6 +74,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         layer_on(L_EXTRA);
       } else {
         layer_off(L_EXTRA);
+      }
+      return false;
+    case NUMPAD:
+      if (record->event.pressed) {
+        tap_code(KC_NUMLOCK);
+        layer_invert(L_NUMPAD);
       }
       return false;
   }
