@@ -130,4 +130,4 @@ printf '#!/bin/sh\nexec /usr/bin/X -ardelay 330 -arinterval 25 -nolisten tcp "$@
 ## References
 
 - [foostan's build guide (in Japanese)](https://github.com/foostan/crkbd/blob/master/corne-cherry/doc/buildguide_jp.md).
-- [QMK Hand-Wiring Guide](https://github.com/qmk/qmk_firmware/blob/master/docs/hand_wire.md) (make sure to read "How a Keyboard Matrix Works (and why we need diodes)")
+- [QMK Hand-Wiring Guide](https://github.com/qmk/qmk_firmware/blob/master/docs/hand_wire.md) (make sure to read "How a Keyboard Matrix Works (and [why we need diodes](https://deskthority.net/wiki/Rollover,_blocking_and_ghosting))")
