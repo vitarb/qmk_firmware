@@ -34,3 +34,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Custom config options
 // #define LAYOUT_COLEMAK_DH
+// #define LAYOUT_COLEMAK
+// #define LAYOUT_QERTY_SCLN
