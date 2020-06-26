@@ -41,6 +41,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 40
 
 // Custom config options
-// #define LAYOUT_COLEMAK_DH
-// #define LAYOUT_COLEMAK
+
+// QWERTY with ;p swapped
 // #define LAYOUT_QERTY_SCLN
+
+// https://colemak.com/
+// #define LAYOUT_COLEMAK
+
+// https://colemakmods.github.io/mod-dh/
+// #define LAYOUT_COLEMAK_DH

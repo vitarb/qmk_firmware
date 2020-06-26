@@ -110,8 +110,8 @@ make crkbd:shyiko:dfu-split-right
 
 ## Layout customization
 
-Default layout is Qwerty. Uncomment `#define LAYOUT_COLEMAK_DH` in `config.h` if you
-want [Colemak-DH](https://colemakmods.github.io/mod-dh/) instead.
+Default layout is QWERTY.  
+Uncomment `#define LAYOUT_COLEMAK` in `config.h` if you want Colemak.
 
 ## OS-specific setup
 
