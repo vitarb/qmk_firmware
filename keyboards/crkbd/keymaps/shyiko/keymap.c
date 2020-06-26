@@ -30,6 +30,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case KC_MPRV: case KC_MNXT: case KC_PGUP:
     case KC_MPLY: case KC_HOME: case KC_PGDOWN: case KC_END:
+    case KC_MINUS: case KC_EQUAL: case KC_BSLASH: case KC_GRAVE:
       if (!IS_LAYER_ON(L_LOWER_SHIFT) || IS_LAYER_ON(L_RAISE)) {
         break;
       }
