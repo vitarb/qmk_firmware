@@ -65,11 +65,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                _______, _______, _______, /**/ _______, _______, _______                               \
   ),
 
-  [L_EXTRA] = LAYOUT(                                                                                                  \
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, /**/ XXXXXXX, XXXXXXX, KC_INSERT, XXXXXXX, KC_PSCR, XXXXXXX, \
-    KC_CAPS, KC_BRID, KC_BRIU, XXXXXXX, XXXXXXX, XXXXXXX, /**/ XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, NUMPAD,  \
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, /**/ XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, _______, \
-                               _______, _______, _______, /**/ _______, _______, _______                               \
+  [L_EXTRA] = LAYOUT(                                                                                                                        \
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    /**/ XXXXXXX,    XXXXXXX,       KC_INSERT,  XXXXXXX,    KC_PSCR,     XXXXXXX, \
+    KC_CAPS, KC_BRID, KC_BRIU, XXXXXXX, XXXXXXX, XXXXXXX,    /**/ XXXXXXX,    KC_MS_WH_UP,   XXXXXXX,    KC_MS_UP,   XXXXXXX,     NUMPAD,  \
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    /**/ XXXXXXX,    KC_MS_WH_DOWN, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, _______, \
+                               _______, _______, KC_MS_BTN1, /**/ KC_MS_BTN2, _______,       _______                                         \
   ),
 
   [L_NUMPAD] = LAYOUT(                                                                                                          \

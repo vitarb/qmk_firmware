@@ -32,6 +32,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // required in case of Elite C v3.0
 #define SPLIT_USB_DETECT
 
+// https://beta.docs.qmk.fm/using-qmk/advanced-keycodes/feature_mouse_keys
+#define MOUSEKEY_INTERVAL 20
+#define MOUSEKEY_DELAY 0
+#define MOUSEKEY_MAX_SPEED 12
+#define MOUSEKEY_TIME_TO_MAX 60
+#define MOUSEKEY_WHEEL_MAX_SPEED 8
+#define MOUSEKEY_WHEEL_TIME_TO_MAX 40
+
 // Custom config options
 // #define LAYOUT_COLEMAK_DH
 // #define LAYOUT_COLEMAK
