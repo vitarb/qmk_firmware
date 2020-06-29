@@ -8,14 +8,13 @@
 #define L_RAISE 3
 #define L_EXTRA 4
 #define L_ADJUST 5 // LOWER+RAISE
-#define L_NUMPAD 6
+#define L_MOUSE 6
 
 // custom key codes for layer switching
 enum kc_custom {
   LOWER = SAFE_RANGE,
   RAISE,
-  EXTRA,
-  NUMPAD
+  EXTRA
 };
 
 #include "keymap_layers.h"
@@ -27,27 +26,35 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     register_code(KC_LSFT);
     restore_shift = false;
   }
-  switch (keycode) {
-    case KC_MPRV: case KC_MNXT: case KC_PGUP:
-    case KC_MPLY: case KC_HOME: case KC_PGDOWN: case KC_END:
-    case KC_MINUS: case KC_EQUAL: case KC_BSLASH: case KC_GRAVE:
-      if (!IS_LAYER_ON(L_LOWER_SHIFT) || IS_LAYER_ON(L_RAISE)) {
+  if (IS_LAYER_ON(L_LOWER_SHIFT) && !IS_LAYER_ON(L_RAISE)) {
+    switch (keycode) {
+      case KC_MPRV: case KC_MNXT: case KC_PGUP:
+      case KC_MPLY: case KC_HOME: case KC_PGDOWN: case KC_END:
+      case KC_MINUS: case KC_EQUAL: case KC_BSLASH: case KC_GRAVE:
+        if (record->event.pressed) {
+            unregister_code(KC_LSFT);
+        } else {
+            restore_shift = true;
+        }
+        break; // let qmk handle keycode as usual
+      case LOWER:
+      case KC_LSFT:
         break;
-      }
-      if (record->event.pressed) {
-        unregister_code(KC_LSFT);
-      } else {
-        restore_shift = true;
-      }
-      break; // let qmk handle keycode as usual
+      default:
+        register_code(KC_LSFT);
+        break; // let qmk handle keycode as usual
+    }
+  }
+  switch (keycode) {
     case KC_LSFT:
       if (!IS_LAYER_ON(L_LOWER)) {
-        break;
+        break; // let qmk handle keycode as usual
       }
       if (record->event.pressed) {
         layer_on(L_LOWER_SHIFT);
       } else {
         layer_off(L_LOWER_SHIFT);
+        restore_shift = false;
       }
       break; // let qmk handle keycode as usual
     case LOWER:
@@ -58,6 +65,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
       } else {
         layer_off(L_LOWER_SHIFT);
+        restore_shift = false;
         layer_off(L_LOWER);
       }
       update_tri_layer(L_LOWER, L_RAISE, L_ADJUST);
@@ -75,12 +83,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         layer_on(L_EXTRA);
       } else {
         layer_off(L_EXTRA);
-      }
-      return false;
-    case NUMPAD:
-      if (record->event.pressed) {
-        tap_code(KC_NUMLOCK);
-        layer_invert(L_NUMPAD);
       }
       return false;
   }
