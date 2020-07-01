@@ -2,13 +2,14 @@
 
 // layers
 // https://beta.docs.qmk.fm/using-qmk/software-features/feature_layers
-#define L_DEFAULT 0
-#define L_LOWER 1
-#define L_LOWER_SHIFT 2
-#define L_RAISE 3
-#define L_EXTRA 4
-#define L_ADJUST 5 // LOWER+RAISE
-#define L_MOUSE 6
+#define L_QWERTY 0
+#define L_COLEMAK 1
+#define L_LOWER 2
+#define L_LOWER_SHIFT 3
+#define L_RAISE 4
+#define L_EXTRA 5
+#define L_ADJUST 6 // LOWER+RAISE
+#define L_MOUSE 7
 
 // custom key codes for layer switching
 enum kc_custom {
@@ -28,9 +29,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   if (IS_LAYER_ON(L_LOWER_SHIFT) && !IS_LAYER_ON(L_RAISE)) {
     switch (keycode) {
+      case KC_SCLN:
       case KC_MPRV: case KC_MNXT: case KC_PGUP:
       case KC_MPLY: case KC_HOME: case KC_PGDOWN: case KC_END:
-      case KC_MINUS: case KC_EQUAL: case KC_BSLASH: case KC_GRAVE:
+      case KC_MINUS: case KC_EQUAL: /* case KC_BSLASH:  */case KC_GRAVE:
         if (record->event.pressed) {
             unregister_code(KC_LSFT);
         } else {
