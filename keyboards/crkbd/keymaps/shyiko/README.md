@@ -1,7 +1,7 @@
 
 # shyiko's [corne](https://github.com/foostan/crkbd) setup
 
-This document describes how to flash Elite C v3.0/Micro Pro for corne.  
+This document describes how to flash Elite C v3.0+/Micro Pro for corne.  
 
 > See [this](https://github.com/shyiko/dotfiles/blob/master/CORNE.md) for the list of parts.
 
@@ -15,7 +15,23 @@ util/qmk_install.sh
 
 ## Flashing firmware (on Linux)
 
-### `1`st time
+```bash
+# if you have Elite C v3.0+
+# connect one side of the keyboard (TRRS cable may stay plugged in / no need to disconnect the other side)
+# short GND & RST on a microcontroller OR press reset button
+make crkbd:shyiko:dfu-split-left
+# repeat the same process for the other side
+make crkbd:shyiko:dfu-split-right
+
+# if you have Pro Micro
+# connect one side of the keyboard (TRRS cable may stay plugged in / no need to disconnect the other side)
+# short GND & RST on a microcontroller OR press reset button
+make crkbd:shyiko:avrdude-split-left
+# repeat the same process for the other side
+make crkbd:shyiko:avrdude-split-right
+```
+
+### If the above doesn't work (e.g. "ERROR: bootloader not found")
 
 #### Setup udev rules
 
@@ -89,29 +105,6 @@ make crkbd:shyiko:dfu-split-right
 ```
 
 > \* alternatively, `make crkbd:shyiko` and then `avrdude -p atmega32u4 -P /dev/ttyACM0 -c avr109 -U flash:w:crkbd_rev1_shyiko.hex`.
-
-### `N`th time
-
-```bash
-# if you have Pro Micro
-# connect left side of the keyboard (keep TRRS cable disconnected)
-# short GND & RST on a microcontroller OR press reset button
-make crkbd:shyiko:avrdude-split-left
-# repeat the same process for the right side
-make crkbd:shyiko:avrdude-split-right
-
-# if you have Elite C v3.0
-# connect left side of the keyboard (keep TRRS cable disconnected)
-# short GND & RST on a microcontroller OR press reset button
-make crkbd:shyiko:dfu-split-left
-# repeat the same process for the right side
-make crkbd:shyiko:dfu-split-right
-```
-
-## Layout customization
-
-Default layout is QWERTY.  
-Uncomment `#define LAYOUT_COLEMAK` in `config.h` if you want Colemak.
 
 ## OS-specific setup
 
