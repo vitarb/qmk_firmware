@@ -15,7 +15,13 @@
 enum kc_custom {
   LOWER = SAFE_RANGE,
   RAISE,
-  EXTRA
+  EXTRA,
+  FATARROWR,
+  FATARROWL,
+  FITARROWR,
+  FITARROWL,
+  COLNEQUAL,
+  NEGEEQUAL,
 };
 
 #include "keymap_layers.h"
@@ -85,6 +91,60 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         layer_on(L_EXTRA);
       } else {
         layer_off(L_EXTRA);
+      }
+      return false;
+    case FATARROWR:
+      if (record->event.pressed) {
+        if (get_mods() & MOD_BIT(KC_LSFT)) {
+            unregister_code(KC_LSFT);
+            restore_shift = true;
+        }
+        SEND_STRING("=>");
+      }
+      return false;
+    case FATARROWL:
+      if (record->event.pressed) {
+        if (get_mods() & MOD_BIT(KC_LSFT)) {
+            unregister_code(KC_LSFT);
+            restore_shift = true;
+        }
+        SEND_STRING("<=");
+      }
+      return false;
+    case FITARROWR:
+      if (record->event.pressed) {
+        if (get_mods() & MOD_BIT(KC_LSFT)) {
+            unregister_code(KC_LSFT);
+            restore_shift = true;
+        }
+        SEND_STRING("->");
+      }
+      return false;
+    case FITARROWL:
+      if (record->event.pressed) {
+        if (get_mods() & MOD_BIT(KC_LSFT)) {
+            unregister_code(KC_LSFT);
+            restore_shift = true;
+        }
+        SEND_STRING("<-");
+      }
+      return false;
+    case COLNEQUAL:
+      if (record->event.pressed) {
+        if (get_mods() & MOD_BIT(KC_LSFT)) {
+            unregister_code(KC_LSFT);
+            restore_shift = true;
+        }
+        SEND_STRING(":=");
+      }
+      return false;
+    case NEGEEQUAL:
+      if (record->event.pressed) {
+        if (get_mods() & MOD_BIT(KC_LSFT)) {
+            unregister_code(KC_LSFT);
+            restore_shift = true;
+        }
+        SEND_STRING("!=");
       }
       return false;
   }
