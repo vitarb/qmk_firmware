@@ -2,8 +2,8 @@
 
 // layers
 // https://beta.docs.qmk.fm/using-qmk/software-features/feature_layers
-#define L_CLMK 0
-#define L_QWTY 1
+#define L_QWTY 0
+#define L_CLMK 1
 #define L_LOWER 2
 #define L_RAISE 3
 #define L_EXTRA 4
