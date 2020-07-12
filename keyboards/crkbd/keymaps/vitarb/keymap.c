@@ -8,13 +8,11 @@
 #define L_RAISE 3
 #define L_EXTRA 4
 #define L_ADJUST 5 // LOWER+RAISE
-#define L_MEDIA 6
 
 // custom key codes for layer switching
 enum kc_custom {
   LOWER = SAFE_RANGE,
   RAISE,
-  MEDIA,
   EXTRA,
   FATARROWR,
   FATARROWL,
@@ -55,13 +53,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         layer_on(L_EXTRA);
       } else {
         layer_off(L_EXTRA);
-      }
-      return false;
-    case MEDIA:
-      if (record->event.pressed) {
-        layer_on(L_MEDIA);
-      } else {
-        layer_off(L_MEDIA);
       }
       return false;
     case FATARROWR:
