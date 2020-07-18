@@ -93,6 +93,45 @@ void matrix_scan_user(void) {
 	SEQ_ONE_KEY(KC_S) {
 	  SEND_STRING(SS_LCTRL("s"));
 	}
+	SEQ_ONE_KEY(KC_D) {
+	  SEND_STRING(SS_LCTRL("d"));
+	}
+	SEQ_ONE_KEY(KC_Y) {
+	  SEND_STRING(SS_LCTRL("y"));
+	}
+	SEQ_ONE_KEY(KC_H) {
+	  SEND_STRING(SS_LCTRL("h"));
+	}
+	SEQ_ONE_KEY(KC_P) {
+	  SEND_STRING(SS_LCTRL("p"));
+	}
+	SEQ_ONE_KEY(KC_Q) {
+	  SEND_STRING(SS_LCTRL("q"));
+	}
+	SEQ_ONE_KEY(KC_W) {
+	  SEND_STRING(SS_LCTRL("q"));
+	}
+
+	SEQ_ONE_KEY(KC_DOT)	{
+	  register_code(KC_LCTL);
+      register_code(KC_TAB);
+      unregister_code(KC_TAB);
+      unregister_code(KC_LCTL);
+	}
+	SEQ_ONE_KEY(KC_COMM) {
+	  register_code(KC_LALT);
+      register_code(KC_TAB);
+      unregister_code(KC_TAB);
+      unregister_code(KC_LALT);
+	}
+	SEQ_TWO_KEYS(KC_COMM, KC_COMM) {
+	  register_code(KC_LALT);
+      register_code(KC_TAB);
+      unregister_code(KC_TAB);
+	  register_code(KC_TAB);
+      unregister_code(KC_TAB);
+      unregister_code(KC_LALT);
+	}
 	SEQ_TWO_KEYS(KC_Z, KC_Z) {
       SEND_STRING(SS_LCTRL(SS_LSFT("z")));
     }
