@@ -109,7 +109,7 @@ void matrix_scan_user(void) {
 	  SEND_STRING(SS_LCTRL("q"));
 	}
 	SEQ_ONE_KEY(KC_W) {
-	  SEND_STRING(SS_LCTRL("q"));
+	  SEND_STRING(SS_LCTRL("w"));
 	}
 
 	SEQ_ONE_KEY(KC_DOT)	{
