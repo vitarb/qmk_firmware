@@ -8,6 +8,8 @@
 #define L_RAISE 3
 #define L_EXTRA 4
 #define L_ADJUST 5 // LOWER+RAISE
+#define M_QWTY 6
+#define M_CLMK 7
 
 // custom key codes for layer switching
 enum kc_custom {
