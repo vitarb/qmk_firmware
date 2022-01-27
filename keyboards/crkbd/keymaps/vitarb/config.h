@@ -32,11 +32,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // required in case of Elite C v3.0
 #define SPLIT_USB_DETECT
 
-// https://beta.docs.qmk.fm/using-qmk/advanced-keycodes/feature_mouse_keys
-#define MOUSEKEY_INTERVAL 20
-#define MOUSEKEY_DELAY 0
-#define MOUSEKEY_MAX_SPEED 12
-#define MOUSEKEY_TIME_TO_MAX 60
+// https://github.com/qmk/qmk_firmware/blob/master/docs/feature_mouse_keys.md
+#define MOUSEKEY_DELAY 100
+#define MOUSEKEY_INTERVAL 16
+#define MOUSEKEY_MAX_SPEED 3
+#define MOUSEKEY_TIME_TO_MAX 0
 #define MOUSEKEY_WHEEL_MAX_SPEED 8
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 40
 #define LEADER_PER_KEY_TIMING
