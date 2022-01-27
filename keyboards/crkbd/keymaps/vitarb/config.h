@@ -34,9 +34,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // https://github.com/qmk/qmk_firmware/blob/master/docs/feature_mouse_keys.md
 #define MOUSEKEY_DELAY 100
-#define MOUSEKEY_INTERVAL 16
-#define MOUSEKEY_MAX_SPEED 3
-#define MOUSEKEY_TIME_TO_MAX 0
+#define MOUSEKEY_INTERVAL 20
+#define MOUSEKEY_MOVE_DELTA 5
+#define MOUSEKEY_MAX_SPEED 4
+#define MOUSEKEY_TIME_TO_MAX 20
 #define MOUSEKEY_WHEEL_MAX_SPEED 8
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 40
 #define LEADER_PER_KEY_TIMING
