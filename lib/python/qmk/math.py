@@ -7,6 +7,7 @@ import operator as op
 
 # supported operators
 operators = {ast.Add: op.add, ast.Sub: op.sub, ast.Mult: op.mul, ast.Div: op.truediv, ast.Pow: op.pow, ast.BitXor: op.xor, ast.USub: op.neg}
+ast_num = getattr(ast, 'Num', ())
 
 
 def compute(expr):
@@ -23,7 +24,9 @@ def compute(expr):
 
 
 def _eval(node):
-    if isinstance(node, ast.Num):  # <number>
+    if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)):  # <number>
+        return node.value
+    elif ast_num and isinstance(node, ast_num):  # <number>
         return node.n
     elif isinstance(node, ast.BinOp):  # <left> <operator> <right>
         return operators[type(node.op)](_eval(node.left), _eval(node.right))

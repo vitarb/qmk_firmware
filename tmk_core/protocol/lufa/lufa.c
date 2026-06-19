@@ -528,6 +528,8 @@ void EVENT_USB_Device_ConfigurationChanged(void) {
     /* Setup digitizer endpoint */
     ConfigSuccess &= Endpoint_ConfigureEndpoint((DIGITIZER_IN_EPNUM | ENDPOINT_DIR_IN), EP_TYPE_INTERRUPT, DIGITIZER_EPSIZE, 1);
 #endif
+
+    (void)ConfigSuccess;
 }
 
 /* FIXME: Expose this table in the docs somehow
