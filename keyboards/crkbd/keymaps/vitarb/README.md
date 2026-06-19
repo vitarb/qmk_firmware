@@ -7,8 +7,10 @@ This document describes how to flash Elite C v3.0+/Micro Pro for corne.
 
 ## Quickstart
 
+Use branch `mine` in `vitarb/qmk_firmware`. The keyboard keymap is named `vitarb`.
+
 ```bash
-git clone --recurse-submodules https://github.com/qmk/qmk_firmware.git &&
+git clone --branch mine --recurse-submodules https://github.com/vitarb/qmk_firmware.git &&
   cd qmk_firmware
 util/qmk_install.sh
 ```
@@ -19,16 +21,16 @@ util/qmk_install.sh
 # if you have Elite C v3.0+
 # connect one side of the keyboard (TRRS cable may stay plugged in / no need to disconnect the other side)
 # short GND & RST on a microcontroller OR press reset button
-make crkbd:vitarb:dfu-split-left
+make QMK_BIN=bin/qmk crkbd:vitarb:dfu-split-left
 # repeat the same process for the other side
-make crkbd:vitarb:dfu-split-right
+make QMK_BIN=bin/qmk crkbd:vitarb:dfu-split-right
 
 # if you have Pro Micro
 # connect one side of the keyboard (TRRS cable may stay plugged in / no need to disconnect the other side)
 # short GND & RST on a microcontroller OR press reset button
-make crkbd:vitarb:avrdude-split-left
+make QMK_BIN=bin/qmk crkbd:vitarb:avrdude-split-left
 # repeat the same process for the other side
-make crkbd:vitarb:avrdude-split-right
+make QMK_BIN=bin/qmk crkbd:vitarb:avrdude-split-right
 ```
 
 ### If the above doesn't work (e.g. "ERROR: bootloader not found")
@@ -111,7 +113,7 @@ make QMK_BIN=bin/qmk crkbd:vitarb:dfu-split-right
 - Extra layer `O/P/_`: terminal opacity via `Super+(`/`Super+)`/`Super+%`.
 - RGB lighting is intentionally disabled in this keymap.
 
-> \* alternatively, `make crkbd:vitarb` and then `avrdude -p atmega32u4 -P /dev/ttyACM0 -c avr109 -U flash:w:crkbd_rev1_vitarb.hex`.
+> \* alternatively, `make QMK_BIN=bin/qmk crkbd:vitarb` and then `avrdude -p atmega32u4 -P /dev/ttyACM0 -c avr109 -U flash:w:crkbd_rev1_vitarb.hex`.
 
 ## OS-specific setup
 
