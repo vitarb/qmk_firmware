@@ -11,6 +11,12 @@
 #define M_QWTY 6
 #define M_CLMK 7
 
+#define WP_PREV LGUI(KC_LBRC)
+#define WP_NEXT LGUI(KC_RBRC)
+#define OP_MORE LGUI(KC_MINS)
+#define OP_LESS LGUI(KC_EQL)
+#define OP_RST  LGUI(KC_0)
+
 // custom key codes for layer switching
 enum kc_custom {
   LOWER = SAFE_RANGE,

@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_EXTRA] = LAYOUT(																															\
-    XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX, /**/ XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,\
+    XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX, /**/ XXXXXXX,	WP_PREV,	WP_NEXT,	OP_MORE,	OP_LESS,	OP_RST,\
     _______,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX, /**/ XXXXXXX,	KC_VOLD,	KC_VOLU,	KC_MUTE,	XXXXXXX,	XXXXXXX,\
     _______,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX,	XXXXXXX, /**/ XXXXXXX,	KC_MPRV,	KC_MNXT,	KC_MPLY,	KC_CALC,	XXXXXXX,\
 						_______,	XXXXXXX,	XXXXXXX, /**/ XXXXXXX,	XXXXXXX,    _______										\
@@ -48,4 +48,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 						_______,	_______,	_______, /**/ _______,		_______,	_______										\
   )
 };
-
