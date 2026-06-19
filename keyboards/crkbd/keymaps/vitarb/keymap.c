@@ -13,9 +13,9 @@
 
 #define WP_PREV LGUI(KC_LBRC)
 #define WP_NEXT LGUI(KC_RBRC)
-#define OP_MORE LGUI(KC_MINS)
-#define OP_LESS LGUI(KC_EQL)
-#define OP_RST  LGUI(KC_0)
+#define OP_MORE LSG(KC_9)
+#define OP_LESS LSG(KC_0)
+#define OP_RST  LSG(KC_5)
 
 // custom key codes for layer switching
 enum kc_custom {

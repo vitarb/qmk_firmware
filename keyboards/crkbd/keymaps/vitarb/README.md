@@ -108,7 +108,7 @@ make QMK_BIN=bin/qmk crkbd:vitarb:dfu-split-right
 
 - Extra layer `J/K/L`: volume down, volume up, mute.
 - Extra layer `U/I`: previous/next wallpaper.
-- Extra layer `O/P/_`: more transparent, less transparent, reset terminal opacity.
+- Extra layer `O/P/_`: terminal opacity via `Super+(`/`Super+)`/`Super+%`.
 - RGB lighting is intentionally disabled in this keymap.
 
 > \* alternatively, `make crkbd:vitarb` and then `avrdude -p atmega32u4 -P /dev/ttyACM0 -c avr109 -U flash:w:crkbd_rev1_vitarb.hex`.
